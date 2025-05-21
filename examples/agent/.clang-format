@@ -1,0 +1,25 @@
+BasedOnStyle: google
+TabWidth: 2
+BreakBeforeBraces: Allman
+BraceWrapping: 
+  AfterClass: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterObjCDeclaration: true
+  AfterStruct: true
+  BeforeCatch: true
+  AfterExternBlock: true
+  BeforeElse: true
+  IndentBraces: true
+  SplitEmptyRecord: false
+  AfterUnion: true
+BreakBeforeInheritanceComma: true
+NamespaceIndentation: All
+PointerAlignment: Right
+CompactNamespaces: true
+IndentWrappedFunctionNames: true
+SpaceAfterCStyleCast: true
+SpacesInContainerLiterals: false
+ColumnLimit: 150
