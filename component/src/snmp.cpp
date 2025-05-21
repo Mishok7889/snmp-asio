@@ -5,7 +5,7 @@ namespace SNMP {
 
 // SNMP base class constructor
 SNMP::SNMP(asio::io_context& io_context, const uint16_t defaultPort)
-    : _io_context(io_context), _defaultPort(defaultPort)
+    : _defaultPort(defaultPort), _io_context(io_context)
 {
 }
 

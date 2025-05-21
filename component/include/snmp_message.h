@@ -163,7 +163,7 @@ public:
      * @param refresh Refresh parameter for inherited ArrayBER::getSize().
      * @return Message size.
      */
-    virtual const unsigned int getSize(const bool refresh = false) {
+    virtual unsigned int getSize(const bool refresh = false) {
         build();
         return ArrayBER::getSize(refresh);
     }
@@ -186,7 +186,7 @@ public:
      *
      * @return %SNMP version.
      */
-    const uint8_t getVersion() const {
+    uint8_t getVersion() const {
         return _version;
     }
 
@@ -204,7 +204,7 @@ public:
      *
      * @return PDU type.
      */
-    const uint8_t getType() const {
+    uint8_t getType() const {
         return _type;
     }
 
@@ -215,7 +215,7 @@ public:
      *
      * @return Request identifier.
      */
-    const int32_t getRequestID() const {
+    int32_t getRequestID() const {
         return _generic._requestID;
     }
 
@@ -237,7 +237,7 @@ public:
      *
      * @return Error status.
      */
-    const uint8_t getErrorStatus() const {
+    uint8_t getErrorStatus() const {
         return _generic._error._status;
     }
 
@@ -248,7 +248,7 @@ public:
      *
      * @return Error index.
      */
-    const uint8_t getErrorIndex() const {
+    uint8_t getErrorIndex() const {
         return _generic._error._index;
     }
 
@@ -272,7 +272,7 @@ public:
      *
      * @return Number of OIDs treated as getRequest.
      */
-    const uint8_t getNonRepeaters() const {
+    uint8_t getNonRepeaters() const {
         return _generic._bulk._nonRepeaters;
     }
 
@@ -294,7 +294,7 @@ public:
      *
      * @return Number of get next operations for each additional OIDs.
      */
-    const uint8_t getMaxRepetition() const {
+    uint8_t getMaxRepetition() const {
         return _generic._bulk._maxRepetitions;
     }
 
@@ -508,7 +508,7 @@ private:
      * @param status %SNMP version 2 error status.
      * @return %SNMP version 1 error status.
      */
-    const uint8_t mapErrorStatus(const uint8_t status) const {
+    uint8_t mapErrorStatus(const uint8_t status) const {
         if (_version == Version::V1) {
             // RFC 2089 2.1 Mapping SNMPv2 error-status into SNMPv1 error-status
             switch (status) {

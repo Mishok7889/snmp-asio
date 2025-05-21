@@ -450,7 +450,7 @@ public:
      *
      * @return Class from BER type.
      */
-    const uint8_t getClass() const {
+    uint8_t getClass() const {
         return _class;
     }
 
@@ -459,7 +459,7 @@ public:
      *
      * @return Form from BER type.
      */
-    const uint8_t getForm() const {
+    uint8_t getForm() const {
         return _form;
     }
 
@@ -468,7 +468,7 @@ public:
      *
      * @return Tag from BER type.
      */
-    const unsigned int getTag() const {
+    unsigned int getTag() const {
         return _tag;
     }
 
@@ -616,7 +616,7 @@ public:
     uint8_t* encode(uint8_t *buffer) {
         uint8_t *pointer = buffer;
         if (_length > 0x7F) {
-            *pointer = 0x80 | _size - 1;
+            *pointer = 0x80 | (_size - 1);
             pointer += _size - 1;
 
             unsigned int value = _length;
@@ -996,7 +996,7 @@ public:
      *
      * @return BER type.
      */
-    const unsigned int getType() const {
+    unsigned int getType() const {
         return _type;
     }
 
@@ -1005,7 +1005,7 @@ public:
      *
      * @return BER length.
      */
-    const unsigned int getLength() const {
+    unsigned int getLength() const {
         return _length;
     }
 
@@ -1021,7 +1021,7 @@ public:
      * @param refresh Unused.
      * @return BER size.
      */
-    virtual const unsigned int getSize(const bool refresh = false) {
+    virtual unsigned int getSize(const bool refresh = false) {
         _size = _type._size + _length._size + _length;
         return _size;
     }
@@ -1133,7 +1133,7 @@ public:
      *
      * @return BER boolean value.
      */
-    const bool getValue() const {
+    bool getValue() const {
         return _value;
     }
 
@@ -1249,7 +1249,7 @@ public:
      *
      * @return IntegerBER integer value.
      */
-    const int32_t getValue() const {
+    int32_t getValue() const {
         return _value;
     }
 
@@ -1415,7 +1415,7 @@ public:
      * @param index Index of the bit.
      * @return Bit as boolean.
      */
-    const bool getBit(const unsigned int index) const {
+    bool getBit(const unsigned int index) const {
         const unsigned int byte = index / 8;
         const uint8_t bit = index % 8;
         return _value[byte] & (0x80 >> bit);
@@ -1859,7 +1859,7 @@ public:
      * @param refresh If true, computes size, if false returns already computed size.
      * @return BER size.
      */
-    virtual const unsigned int getSize(const bool refresh = false) {
+    virtual unsigned int getSize(const bool refresh = false) {
         if (refresh) {
             _length = 0;
             for (uint8_t index = 0; index < _count; ++index) {
@@ -1886,7 +1886,7 @@ public:
      *
      * @return Count of BERs.
      */
-    const uint8_t count() const {
+    uint8_t count() const {
         return _count;
     }
 
@@ -2430,7 +2430,7 @@ public:
      * @param refresh If true, computes size, if false returns already computed size.
      * @return BER size.
      */
-    virtual const unsigned int getSize(const bool refresh = false) {
+    virtual unsigned int getSize(const bool refresh = false) {
         if (refresh) {
             _length = _ber->getSize(true);
         }
@@ -2547,7 +2547,7 @@ public:
      *
      * @return FloatBER float value.
      */
-    const float getValue() const {
+    float getValue() const {
         return _value;
     }
 
